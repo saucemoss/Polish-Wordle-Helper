@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Polish Wordle Helper</title>
+
+  <style>
+    /* Style for the box */
+    .text-box {
+      width: auto;
+      height: auto;
+      color: white;
+      padding: 10px;
+      border: 2px solid #1a548a;
+      border-radius: 5px;
+      background-color: #004a75;
+      margin-top: 20px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      margin: 10px; 
+
+    }
+      /* Individual items */
+    .item {
+      padding: 10px;
+      background-color: #004a75;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      flex: 1; 
+      margin: 12px; 
+    }
+    h1 {
+      text-align: center;
+    }
+    /* Button styling */
+    .btn {
+      padding: 10px 10px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      border-radius: 5px;
+    }
+    .btn span {
+      opacity: 0; /* Make text invisible */
+      position: absolute; /* Positioning text over the button */
+      left: 0; /* Aligning left */
+      top: 0; /* Aligning top */
+    }
+    .btn-green {
+      background-color: green;
+    }
+    .btn-yellow {
+      background-color: goldenrod;
+    }
+    p {line-height:1px;}
+    input {
+      background-color: white;
+      text-align: center;
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="item">
+    <h1>My Polish Wordle Helper</h1>
+  </div>
+  <div class="item">
+    <label>1st Word: </label>
+    <p>
+    <input type="text" id="charInput1" maxlength="1" size = 1>
+    <input type="text" id="charInput2" maxlength="1" size = 1>
+    <input type="text" id="charInput3" maxlength="1" size = 1>
+    <input type="text" id="charInput4" maxlength="1" size = 1>
+    <input type="text" id="charInput5" maxlength="1" size = 1>
+    <br />
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput1')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput1')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput2')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput2')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput3')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput3')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput4')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput4')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput5')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput5')"><span>G</span></button>
+    </p>
+  </div>
+  <div class="item">
+    <label>2nd Word: </label>
+    <p>
+    <input type="text" id="charInput6" maxlength="1" size = 1>
+    <input type="text" id="charInput7" maxlength="1" size = 1>
+    <input type="text" id="charInput8" maxlength="1" size = 1>
+    <input type="text" id="charInput9" maxlength="1" size = 1>
+    <input type="text" id="charInput10" maxlength="1" size = 1>
+    <br />
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput6')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput6')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput7')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput7')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput8')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput8')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput9')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInput9')"><span>G</span></button>
+    <button class="btn btn-green" onclick="changeColor('green', 'charInput10')"><span>G</span></button>
+    <button class="btn btn-yellow" onclick="changeColor('goldenrod', 'charInpu10')"><span>G</span></button>
+    </p>
+  </div>
+  <div class="item">
+    <label>3rd Word: </label>
+    <p></p>
+    <input type="text" id="charInput11" maxlength="1" size = 1>
+    <input type="text" id="charInput12" maxlength="1" size = 1>
+    <input type="text" id="charInput13" maxlength="1" size = 1>
+    <input type="text" id="charInput14" maxlength="1" size = 1>
+    <input type="text" id="charInput15" maxlength="1" size = 1>
+    <br></br>
+  </div>
+  <div class="item">
+    <label>4th Word: </label>
+    <p></p>
+    <input type="text" id="charInput16" maxlength="1" size = 1>
+    <input type="text" id="charInput17" maxlength="1" size = 1>
+    <input type="text" id="charInput18" maxlength="1" size = 1>
+    <input type="text" id="charInput19" maxlength="1" size = 1>
+    <input type="text" id="charInput20" maxlength="1" size = 1>
+    <br></br>
+  </div>
+  <div class="item">
+    <button onclick="loadLocalFile()">Get Words</button>
+    <br></br>
+  </div>
+
+
+
+  <div id="outputBox" class="text-box">
+    <!-- The text from the input will be displayed here -->
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
